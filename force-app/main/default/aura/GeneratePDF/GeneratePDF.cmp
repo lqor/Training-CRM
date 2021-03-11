@@ -1,0 +1,14 @@
+<aura:component controller="PdfGeneratorController" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,lightning:availableForFlowScreens">
+    <aura:html tag="style">
+        .slds-modal__container {
+            max-width: 60rem !important;
+            width:80% !important;
+        }
+    </aura:html>
+
+    <div class="incWidth"></div>
+    <iframe width="100%" height="650px" src="{! 'https://training-crm-dev-ed--c.visualforce.com/apex/PdfGeneratorTemplate?Id=' + v.recordId }"/>
+    <br/>    <br/>
+    <lightning:button variant="brand" label="Save PDFs" title="Brand action" onclick="{! c.handleClick }" />
+    <br/>
+</aura:component>

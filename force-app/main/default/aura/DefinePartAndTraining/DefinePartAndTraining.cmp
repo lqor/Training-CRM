@@ -1,0 +1,10 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,lightning:availableForFlowScreens">
+    <aura:html tag="style">
+        .slds-modal__container {
+            max-width: 34rem !important;
+            width:80% !important;
+        }
+    </aura:html>
+
+    <c:definePartAndTrainingLwc recordId="{!v.recordId}" onclose="{!c.closeQA}"/>
+</aura:component>

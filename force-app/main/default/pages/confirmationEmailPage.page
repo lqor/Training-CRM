@@ -1,0 +1,29 @@
+<apex:page controller="ConfirmationEmailController">
+    Hello {!FirstName} <apex:outputText value="{!FirstName}"/> <apex:param value="" name="FirstName"/>, <br /><br /><br />
+
+    soon you will take part in our seminar. <br />
+    The course takes place on the following dates and times:<br />
+    
+    from <apex:outputText value="{!StartDateTime}"/> until <apex:outputText value="{!EndDateTime}"/><br /><br />
+    
+    at the following location: <br />
+    
+    <apex:outputText value="{!Street}"/>, <br />
+    <apex:outputText value="{!PLZ}"/> <apex:outputText value="{!City}"/>, <br />
+    <apex:outputText value="{!Country}"/><br />
+    
+    You may find more details about the location and how to get there on our website: <apex:outputText value="{!CompanyWebSite}"/><br />
+    
+    Is there anything else we can assist you with? If you have any questions, please do not hesitate to e-mail us (<apex:outputText value="{!CompanyEmail}"/>) or to call us (<apex:outputText value="{!CompanyPhone}"/>). We are happy to help you.<br />
+    <br />
+    We are very much looking forward to meeting you.<br />
+    <br />
+    Best Regards <br />
+    from your team of <apex:outputText value="{!CompanyName}"/><br />
+    <br /><br />
+    
+    ph: <apex:outputText value="{!CompanyPhone} "/><br />
+    fax:  <apex:outputText value="{!CompanyFax}"/><br />
+    Email: <apex:outputText value="{!CompanyEmail}"/><br />
+    <apex:outputText value="{!CompanyWebSite}"/><br />
+</apex:page>

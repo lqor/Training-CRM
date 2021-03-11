@@ -1,0 +1,9 @@
+<apex:component controller="PDFGeneratorParticipantController" access="global">
+	Training: <apex:outputText value="{t}"></apex:outputText>
+
+	<apex:repeat value="{!participants}" var="part">
+    	<p>
+			Participant: <apex:outputText value="{!part.Name}" escape="false"/>
+		</p>
+    </apex:repeat>
+</apex:component>

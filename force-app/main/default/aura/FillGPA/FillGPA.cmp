@@ -1,0 +1,12 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,lightning:availableForFlowScreens">
+    
+    <ltng:require styles="{!$Resource.ModalCss}"/>
+    
+    <div class="slds-align_absolute-center">
+        <div align="center" class="slds-page-header__name">
+            <div class="slds-page-header__name-title">
+                <c:fillGPALwc recordId="{!v.recordId}" onclose="{!c.closeQA}"/>
+            </div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,20 @@
+<template>
+    <lightning-record-edit-form object-api-name="Participant__c" onsubmit={submitFields}>
+    <lightning-messages>
+    </lightning-messages>
+
+    <template for:each={participants} for:item="part" for:index="index">
+        <div key={part.Id}>
+            <lightning-input-field field-name="Contact__c" variant="label-hidden" required>
+            </lightning-input-field>
+
+            <br>
+        </div>
+    </template>
+
+    <lightning-button type="submit" variant="brand" label="Submit" title="Primary action" 
+                    class="slds-m-left_x-small" >
+    </lightning-button>
+
+    </lightning-record-edit-form>
+</template>

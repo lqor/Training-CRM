@@ -1,0 +1,29 @@
+<template>
+    <template if:false={showAddPart}> 
+        <div class="slds-grid slds-grid_vertical slds-align_absolute-center">
+            <div class="slds-col slds-p-bottom_x-large">
+                <lightning-radio-group 
+                        name="radioGroup" 
+                        options={typeOptions} 
+                        value={type} 
+                        type="button"
+                        onchange={typeSelection}>
+                </lightning-radio-group>
+            </div>
+
+            <div class="slds-col slds-align_absolute-center slds-m-top_x-large">
+                <button class="slds-button slds-button_success slds-m-top_x-large" 
+                        onclick={nextStep}>
+                    Close Opportunity
+                </button>
+            </div>
+          </div>
+    </template>
+
+    <template if:true={showAddPart}> 
+        <c-add-participants-lwc 
+                    record-id={recordId}
+                    onsuccess={closeOpp}
+                    onerror={showError}></c-add-participants-lwc>
+    </template>
+</template>

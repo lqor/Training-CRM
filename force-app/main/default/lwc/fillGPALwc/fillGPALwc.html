@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Participants">
+        <div class="slds-m-around_medium">
+            <template for:each={participants.data} for:item="part" for:index="index">
+                <div key={part.Id} style="width: 100% !important;">
+                    <lightning-input data-id={index} data-index={index} 
+                                        data-field-api-name="GPA__c" value={part.GPA__c} 
+                                        placeholder="GPA"
+                                        label={part.Contact__r.Name}>
+                    </lightning-input>
+
+                    <br>
+                </div>
+            </template>
+
+            <br><br>
+
+            <lightning-button variant="success" class="slds-m-top_small" type="submit" label="Submit changes" onclick={handleSubmit}>
+            </lightning-button> &nbsp; &nbsp; &nbsp;
+            <lightning-button variant="Brand"
+                             label="Cancel"
+                             title="Cancel"
+                             type="text"
+                             onclick={handleCancel}
+                             class="slds-m-right_small">
+            </lightning-button>
+        </div>
+    </lightning-card>
+
+    
+</template>

@@ -1,0 +1,9 @@
+<apex:component controller="PdfGeneratorController">
+    <!-- 
+    <apex:repeat value="{!strings}" var="string" id="theRepeat">
+        <b><apex:outputText value="{!string}"/></b> <br/>
+        <div style="page-break-after:always;"> </div>
+    </apex:repeat> 
+    -->
+    <apex:outputText value="{!t.Name}"/>
+</apex:component>

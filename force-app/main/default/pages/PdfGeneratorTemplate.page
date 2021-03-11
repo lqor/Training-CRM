@@ -1,0 +1,139 @@
+<apex:page standardController="Training__c" extensions="PdfGeneratorController" renderAs="PDF" showHeader="false" standardStylesheets="false" applyHtmlTag="false" docType="html-5.0" applyBodyTag="false">
+    <head>
+        <style type="text/css">
+            @page {
+                @top-center {
+                    content: element(header);
+                }
+
+                margin: 0cm;
+                size: A4;
+            }
+            div.header {
+                text-align: center;
+                width: 100%;
+                padding: 1px;
+                position: running(header);
+            }
+
+            div.content {
+                width:100%;
+                padding-bottom: 30px;
+            }
+
+            .partname {
+                width:100%;
+                color: red;
+            }
+
+            .part {
+                text-align: center;
+                font-size: 35px;
+                font-weight: bold;
+                font-family: Times serif;
+                width:100%;
+            }
+
+            .topics {
+                height: 260px;
+                font-size: 20px !important;
+                font-weight: normal !important;
+            }
+
+            .topics table {
+                vertical-align:top;
+                margin: 0 auto;
+                border-collapse: collapse;
+                border-style: hidden;
+            }
+            .td1 {
+                height: 270px;
+                text-align: right;
+                vertical-align: text-bottom;
+                padding-right: 50px; 
+                border-right: 3px solid #25bdad;
+            }
+
+            .td2 {
+                height: 270px;
+                text-align: left;
+                vertical-align: text-bottom;
+                padding-left: 50px; 
+                border-left: 3px solid #25bdad;
+            }
+
+            .unterschrift {
+                font-size: 20px !important;
+                font-weight: normal !important;
+            }
+        </style>
+    </head>  
+
+    <apex:outputPanel id="thePanel" rendered="true">
+    <apex:variable var="cnt" value="{!participantsNumber}" />
+    <apex:repeat value="{!participants}" var="part">
+        <div class="part">
+            <div class="header">
+                <apex:image url="{! $Resource.Certificate}" style="width:100%;"/>   
+            </div>
+
+            <br/>
+
+            <div class="content">
+                <br/><br/><br/><br/><br/><br/>
+                <div>
+                    <apex:outputText value="{!part.Contact__r.Name}"/> 
+                </div><br/>
+
+                <div style="font-size: 20px !important; font-weight: normal !important;">
+                    <apex:outputText value="from {!t.Start_Date__c} to {!t.End_Date__c}"/>
+                </div><br/>
+
+                <div style="font-size: 30px !important;" > 
+                    <apex:outputText value="{!t.Training_Course__r.Name}"/> 
+                </div><br/>
+
+                <div style="font-size: 20px !important; font-weight: normal !important;" > 
+                    <apex:outputText value="in {!t.Location__r.Address__c}"/> 
+                </div><br/>
+
+                <div style="font-size: 20px !important; font-weight: normal !important;" > 
+                    <apex:outputText value="GPA {!part.GPA__c}"/> 
+                </div><br/>
+                
+                <div class="topics">
+                    <table rules="rows">
+                        <tr>
+                            <td width="50%" class="td1">Main topics</td>
+                            <td width="50%" class="td2">
+                                <apex:outputText value="{!t.Training_Course__r.Description__c}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+    
+                <div class="unterschrift">
+                    <table rules="rows" width="100%">
+                        <tr>
+                            <td width="33.3%" style="border-bottom: 2px solid black;"><apex:image url="{! $Resource.Image1 }" style="width:80%;height:70px;"/></td>
+                            <td width="33.3%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td width="33.3%" style="border-bottom: 2px solid black;"><apex:image url="{! $Resource.Image2 }" style="width:80%;height:70px;"/><br/></td>
+                        </tr>
+    
+                        <tr >
+                            <td width="33.3%">Mirco Czentovic</td>
+                            <td width="33.3%">
+                                <br/><br/>
+                                <apex:image url="{! $Resource.CloudwharfLogo }" style="width:50%;"/>
+                            </td>
+                            <td width="33.3%"><apex:outputText value="{!t.Trainer__r.Name}"/><br/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div style="{!if(cnt >= 0, 'page-break-after:avoid;','page-break-after:always;')}"></div>
+        <apex:variable var="cnt" value="{!cnt+1}"/>
+    </apex:repeat>
+    </apex:outputPanel>
+</apex:page>
